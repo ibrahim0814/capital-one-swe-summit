@@ -1,6 +1,6 @@
 import React from 'react';
-import {Bar,Doughnut,HorizontalBar} from 'react-chartjs-2';
-import  { Card, Header,Divider,Message } from 'semantic-ui-react';
+import {Bar,Doughnut} from 'react-chartjs-2';
+import  { Card, Header,Message } from 'semantic-ui-react';
 import './graphs.css'
 
 const graphs = (props) => {
