@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header size='large'>
-          Capital One SWE Summit 2018 Submission
+          Capital One 2018 Summit Submission - Ibrahim Ali
         </Header>
 
         <Divider></Divider>
