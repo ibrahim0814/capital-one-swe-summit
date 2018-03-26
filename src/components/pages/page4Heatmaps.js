@@ -1,12 +1,15 @@
+//import react 
 import React from 'react';
 
+//other imports -- semantic ui and 2 heatmaps
 import {Header,Card,Message} from 'semantic-ui-react';
-
 import HeatMapAll from '../heatmaps/heatmapAllData';
 import HeatMapLT from '../heatmaps/heatmapLifeThreat';
 
 const heatmapContainer = () => {
 
+    //render a message at the top detailing Task 4, then two heatmaps with information about them
+    //at this point, also pass in important props to heatmaps
     return(
         <div>
             <Message color='teal'>Task 4 (optional):  Add heat maps that show dispatch frequency, urgency over the city.</Message>
@@ -42,5 +45,5 @@ const heatmapContainer = () => {
     );
 }
 
-
+//export component
 export default heatmapContainer;

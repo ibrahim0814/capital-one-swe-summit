@@ -1,31 +1,49 @@
+//import react 
 import React, { Component } from "react";
+
+
+//other imports -- components from react google maps
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 
+//heat map layer from react google maps 
 import HeatmapLayer from "react-google-maps/lib/components/visualization/HeatmapLayer";
 
+//data from csv 
 import csvdata from '../../assets/data';
 
 class HeatMapLifeThreatening extends Component {
 
+    //set initial state -- blank data array
     state = {
         data: [],
     }
+
+     //react lifecycle hook which allows us to control flow of data from APIs
     componentDidMount() {
     
-    let data = [];
-    for(let i=0; i<csvdata.length; i++){
-        let latitude = csvdata[i].latitude;
-        let longitude = csvdata[i].longitude;
-        
-        let obj = new window.google.maps.LatLng(latitude, longitude);
-        if(csvdata[i].call_type_group === 'Potentially Life-Threatening'){
-            data.push(obj);
-        }
-    }
-    
-    this.setState({data: data});
+      //for only potentially threatening calls, get lat and lng and create a maps LatLng point
+      //push that point into a temp data array 
+      let data = [];
+      for(let i=0; i<csvdata.length; i++){
+
+          //get lat and lng from csvdata
+          let latitude = csvdata[i].latitude;
+          let longitude = csvdata[i].longitude;
+          
+          let obj = new window.google.maps.LatLng(latitude, longitude);
+          
+          //filter by call type group
+          if(csvdata[i].call_type_group === 'Potentially Life-Threatening'){
+              data.push(obj);
+          }
+      }
+      
+       //set state with data
+      this.setState({data: data});
   }
 
+   //render a GoogleMap with props from parent (defaults)
+  //below Google maps layer, add a heatmap later with the data we collected
   render() {
     return (
       <div>
@@ -44,4 +62,5 @@ class HeatMapLifeThreatening extends Component {
   }
 }
 
+//export and wrap with google map and script js 
 export default withScriptjs(withGoogleMap(HeatMapLifeThreatening));

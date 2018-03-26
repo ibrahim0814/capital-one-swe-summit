@@ -1,32 +1,46 @@
+//import react 
 import React,{Component} from 'react';
+
+//csv data from file
 import csvdata from '../../assets/data';
+
+//json of zipcodes and corresponding district 
 import zipcodes from '../../assets/zipcodes';
 
+//graph component for safe areas 
 import SafeAreasGraph from './safeAreasGraph';
 
+//useful methods for filtering data 
 import {DefaultChartObject, BadValue} from '../usefulFunctions/functions'
 
 class SafeAreas extends Component {
 
+    //initial state -- graph obj 
     state = {
         scoreGraph: {}
     }
 
     constructor(){
         super();
+
+        //run promises for data, then put that data into map obj
         this.getDistrictScoreMap().then((map)=>{
             this.setScoreGraph(map);
         });
     }
 
+    //create and return a map of zipcodes and their corresponding districts
     getZipcodeMap = () => {
         let map = new Map();
+
+        //loop through, set in map 
         for(let i=0; i<zipcodes.length; i++){
             map.set(zipcodes[i].zipcode, zipcodes[i].district);
         }
         return map;
     }
 
+    //get weighted value of dispatch
     getDispatchValue = (unit) => {
 
         if(unit === 'CHIEF'){
@@ -52,12 +66,20 @@ class SafeAreas extends Component {
         }
     }
 
+    //get a map with scores of all the districts
     getDistrictScoreMap = () =>{
 
+        //returns promise 
         return new Promise((resolve, reject) =>{
+
+            //get the zipcode map, set up total and district map
             let zipcodes = this.getZipcodeMap();
             let total = 0;
             let districts = new Map();
+
+            //for valid values, get zipcode, and dispatch
+            //determine district based on zipcode 
+            //determine dispatch weight, set set in dispatch map
             for(let i=0; i<csvdata.length; i++){
                 let disposition = csvdata[i].final_call_disposition;
                 if(!BadValue(disposition)){
@@ -74,27 +96,37 @@ class SafeAreas extends Component {
                 }
 
             }
+            //set up final score map -- basically invert values to show safest district
             let scoreMap = new Map();
             districts.forEach((value,key)=>{
                 scoreMap.set(key,(1-value/total)*100);
             })
-            console.log(scoreMap);
+            
+            //resolve with score map
             resolve(scoreMap);
         }) 
         
     }
 
+    //set chart data obj for district scores 
     setScoreGraph = (map) => {
+
+        //get default chart object 
         let chartSettings = DefaultChartObject();
+
+        //import into chart settings 
         map.forEach((value, key) => {
             chartSettings.labels.push(key);
             chartSettings.datasets[0].data.push(value);
         });
+
+        //initialize other settings, then set data 
         chartSettings.datasets[0].label = 'Safest Areas'
         this.setState({scoreGraph: chartSettings});
     }
 
 
+    //render safest areas graph -- pass in data as prop
     render(){
 
         return (

@@ -1,9 +1,14 @@
+//import react 
 import React from 'react';
+
+//other imports -- chartjs and semantic ui components
 import {Bar,Doughnut} from 'react-chartjs-2';
 import  { Card, Header,Message } from 'semantic-ui-react';
 
+//functional graphs component
 const graphs = (props) => {
 
+    //set default options for graph
     let defaultOptions = {
         title:{
             display: false,
@@ -12,6 +17,10 @@ const graphs = (props) => {
             display: false,
         }
     };
+
+    //create all three graphs with cards and headers from semantic ui
+    //use graph components from chartjs to render specific graphs (ie. Bar, Doughnut)
+    //props have been passed in by parent -- graph data
     return(
         <div>
             <Card fluid raised className="graphsCard">
@@ -66,4 +75,5 @@ const graphs = (props) => {
     );
 }
 
+//export component
 export default graphs;

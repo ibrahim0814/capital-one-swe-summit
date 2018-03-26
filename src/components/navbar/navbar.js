@@ -1,6 +1,11 @@
+//import react 
 import React from 'react'
+
+//other imports -- semantic ui components
 import { Menu } from 'semantic-ui-react'
 
+//functional navbar components
+//renders a vertical menu item -- iterates through given props of menu items
 const navbar = (props) => {
     return (
         <div>
@@ -24,4 +29,5 @@ const navbar = (props) => {
     );
 }
 
+//export component
 export default navbar;

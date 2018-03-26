@@ -1,14 +1,22 @@
+//import react 
 import React from 'react';
+
+//other imports -- chartjs and semantic ui components 
 import {HorizontalBar} from 'react-chartjs-2';
 import  { Card, Header,Message } from 'semantic-ui-react';
 
 const predictionGraph = (props) => {
+
+    //truncate mins and hours so they display properly 
     let mins = Math.trunc(props.mins);
     let hrs = Math.trunc(props.hour);
     if(mins < 10){
         mins='0'+mins;
     }
+    //determine subheader (address+time)
     let subheader = props.address+" at "+hrs+":"+mins+" "+props.amOrpm;
+
+    //render a card with a horizontal bar graph, likely dispatch, and message on data analysis w/ machine learning 
     return(
         <div>
             <Card fluid raised className="graphsCard2">
@@ -42,4 +50,5 @@ const predictionGraph = (props) => {
 
 }
 
+//export component
 export default predictionGraph;
