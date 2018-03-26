@@ -1,4 +1,4 @@
-## Cap One Summit for Software Engineering
+## Capital One Summit for Software Engineering
 
 Submission for the final round of Capital One's SWE Summit (Summer 2018). Applicants were asked to complete a [coding challenge](https://www.mindsumo.com/contests/sfpd-dispatch) which involved designing a website and analyzing 911 call data from San Francisco. 
 
