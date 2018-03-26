@@ -4,15 +4,17 @@ import Navbar from '../components/navbar/navbar'
 
 import { Grid, Divider, Header } from 'semantic-ui-react';
 
-import DataVisuals from '../components/pages/dataVisuals/dataVisuals'
-import PredictDispatch from '../components/pages/predictDispatch/predictDispatch'
-import DispatchTimes from '../components/pages/dispatchTimes/dispatchTimes'
+import DataVisuals from '../components/pages/page1DataVisuals'
+import PredictDispatch from '../components/pages/page2PredictDispatch'
+import DispatchTimes from '../components/pages/page3DispatchTimes'
+import HeatMaps from '../components/pages/page4Heatmaps'
+import CrimeCorrelation from '../components/pages/page5CrimeCorr'
 
 class App extends Component {
 
   state = {
     activeItem: 'Data Visuals',
-    menuItems: ['Data Visuals', 'Predicting Dispatches','Dispatch Times', 'Heat Maps', 'Crime Correlation', 'Future Proofing']
+    menuItems: ['Data Visuals', 'Predicting Dispatches','Dispatch Times', 'Heat Maps', 'Crime Correlation']
   }
 
   handleItemClick = (value) => {
@@ -29,13 +31,10 @@ class App extends Component {
     }else if(activeItem === 'Dispatch Times'){
       page = <DispatchTimes/>
     }else if(activeItem === 'Heat Maps'){
-      page = <div>Heat Maps</div>
+      page = <HeatMaps/>
     }else if(activeItem === 'Crime Correlation'){
-      page = <div>Crime Correlation</div>
-    }else if(activeItem === 'Future Proofing'){
-      page = <div>Future Proofing</div>
+      page = <CrimeCorrelation/>
     }
-
     return page
   }
 
@@ -45,7 +44,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header size='large' >Capital One SWE Summit 2018 Submission </Header>
+        <Header size='large'>
+          Capital One SWE Summit 2018 Submission
+        </Header>
 
         <Divider></Divider>
 

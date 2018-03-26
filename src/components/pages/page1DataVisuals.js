@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Message} from 'semantic-ui-react';
-import GraphData from '../../graphData/graphData'
+import GraphData from '../dataVisuals/graphData'
 
 const dataVisuals = () => {
 

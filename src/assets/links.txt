@@ -1,9 +1,0 @@
-Documentation for csv-parser:
-http://csv.adaltas.com/parse/ 
-
-Online csv to json parser:
-https://www.csvjson.com/csv2json
-
-
-
-

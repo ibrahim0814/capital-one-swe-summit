@@ -1,7 +1,9 @@
 import React , {Component} from 'react';
 
 //component imports 
-import Graph from '../graphs/graphs'
+import Graph from './graphs'
+import {DefaultChartObject, BadValue} from '../usefulFunctions/functions'
+
 
 //dataset 
 const csvdata = require('../../assets/data');
@@ -29,32 +31,20 @@ class GraphData extends Component {
         });
     }
 
-    defaultChartObject = () => {
-        let obj = {
-            labels: [],
-            datasets: [{
-                label: '',
-                data: [],
-                backgroundColor: '#3873ae',
-                hoverBackgroundColor: 'salmon',
-                
-            }]
-        }
-
-        return obj;
-    }
-
     percentByCallTypeData = () =>{
 
         return new Promise((resolve, reject)=>{
             let map = new Map();
-            let total = csvdata.length;
+            let total = 0;
             for(let i=0; i<csvdata.length;i++){
-                let call_type = csvdata[i].call_type;
-                if(!map.has(call_type)){
-                    map.set(call_type,1);
-                }else{
-                    map.set(call_type, map.get(call_type)+1);
+                if(!BadValue(csvdata[i].call_final_disposition)){
+                    let call_type = csvdata[i].call_type;
+                    if(!map.has(call_type)){
+                        map.set(call_type,1);
+                    }else{
+                        map.set(call_type, map.get(call_type)+1);
+                    }
+                    total++;
                 }
             }
             let adjPer = new Map();
@@ -72,7 +62,7 @@ class GraphData extends Component {
     }
 
     percentByCallTypeChart = (map) => {
-        let chartSettings = this.defaultChartObject();
+        let chartSettings = DefaultChartObject();
         map.forEach((value, key) => {
             chartSettings.labels.push(key);
             chartSettings.datasets[0].data.push(value);
@@ -101,7 +91,7 @@ class GraphData extends Component {
 
     numCallsByHourChart = (map) => {
         
-        let chartSettings = this.defaultChartObject();
+        let chartSettings = DefaultChartObject();
         for(let i=0; i<24; i++){
             chartSettings.labels.push(i);
             chartSettings.datasets[0].data.push(map.get(i));
@@ -143,13 +133,12 @@ class GraphData extends Component {
 
     avgResTimeChart = (map) => {
 
-        let chartSettings = this.defaultChartObject();
+        let chartSettings = DefaultChartObject();
         map.forEach((value, key) => {
             chartSettings.labels.push(key);
             chartSettings.datasets[0].data.push(value);
         });
         chartSettings.datasets[0].label = 'Call Group Type'
-        
         this.setState({avgResTimeChart: chartSettings});
     }
 
@@ -169,15 +158,5 @@ class GraphData extends Component {
             </div>
         );
     }
-
-    
-
-    
-
-    
-    
-
-
 }
-
 export default GraphData;

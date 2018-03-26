@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/maps": "^0.4.5",
+    "brain.js": "^1.1.2",
     "chart.js": "^2.7.2",
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.5",
     "react-scripts": "1.1.1",
     "semantic-ui-react": "^0.78.3"
   },

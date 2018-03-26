@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Menu } from 'semantic-ui-react'
-import './navbar.css'
 
 const navbar = (props) => {
     return (
