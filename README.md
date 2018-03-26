@@ -9,12 +9,12 @@ View the project: https://swesummit2018ibrahimali.herokuapp.com (works best on C
 * [Semantic UI React](https://react.semantic-ui.com/introduction) for styling
 * [React Chartjs](https://github.com/reactjs/react-chartjs) for graphing and visualizing data 
 * [React Google Maps](https://github.com/tomchentw/react-google-maps) for rendering heatmaps
-* [Google's Geocode API](https://developers.google.com/maps/documentation/geocoding/start) for retrieving latitude and logitude coordinates
-* [Brain.js](https://github.com/BrainJS/brain.js) for creating neural networks and dispatch prediction
+* [Google's Geocode API](https://developers.google.com/maps/documentation/geocoding/start) for retrieving latitude and longitude coordinates
+* [Brain.js](https://github.com/BrainJS/brain.js) for creating neural networks and predicting dispatches
 * [React](https://reactjs.org) for building the webapp user interface
 
 ### Author
 
-Created by Ibrahim Ali. Contact email: ibrahim.ali@vanderbilt.edu
+Created by Ibrahim Ali. Contact: ibrahim.ali@vanderbilt.edu
 
 
