@@ -2,7 +2,7 @@
 
 Submission for the final round of Capital One's SWE Summit (Summer 2018). Applicants were asked to complete a coding challenge which involved designing a website and analyzing 911 call data from San Francisco. 
 
-View the project: https://git.heroku.com/swesummit2018ibrahimali.git
+View the project: https://swesummit2018ibrahimali.herokuapp.com (works best on Chrome)
 
 ### List of tools and APIs I used to build this application:
 
