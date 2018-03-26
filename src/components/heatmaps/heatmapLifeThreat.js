@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 
-import {Message} from 'semantic-ui-react';
-
 import HeatmapLayer from "react-google-maps/lib/components/visualization/HeatmapLayer";
 
 import csvdata from '../../assets/data';
