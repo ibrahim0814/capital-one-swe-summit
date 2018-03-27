@@ -17,8 +17,7 @@ class GraphData extends Component {
         avgResTimeChart: {},
     }
 
-    constructor(){
-        super();
+    componentDidMount(){
 
         //run series of promises, then use that data to create a graph object x3
 

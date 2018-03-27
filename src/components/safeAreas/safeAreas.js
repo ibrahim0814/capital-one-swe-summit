@@ -20,8 +20,7 @@ class SafeAreas extends Component {
         scoreGraph: {}
     }
 
-    constructor(){
-        super();
+    componentDidMount(){
 
         //run promises for data, then put that data into map obj
         this.getDistrictScoreMap().then((map)=>{

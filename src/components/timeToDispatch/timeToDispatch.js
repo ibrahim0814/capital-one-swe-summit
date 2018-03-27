@@ -20,8 +20,7 @@ class TimeToDispatch extends Component {
         dispatchGraphData: {}
     }
 
-    constructor(){
-        super();
+    componentDidMount(){
         //run promises for dispatch times functions 
         this.getDispatchLength().then((map)=>{
             this.dispatchGraph(map);
