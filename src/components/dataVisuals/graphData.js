@@ -3,6 +3,7 @@ import React , {Component} from 'react';
 
 //component imports -- graph, along with some helpful functions
 import Graph from './graphs'
+import moment from 'moment';
 import {DefaultChartObject, BadValue} from '../usefulFunctions/functions'
 
 //dataset 
@@ -17,7 +18,7 @@ class GraphData extends Component {
         avgResTimeChart: {},
     }
 
-    componentDidMount(){
+    componentWillMount(){
 
         //run series of promises, then use that data to create a graph object x3
 
@@ -28,6 +29,7 @@ class GraphData extends Component {
 
         //number of calls per hour chart
         this.numCallsByHourData().then((data)=>{
+            console.log(data);
             this.numCallsByHourChart(data);
         });
 
@@ -105,8 +107,11 @@ class GraphData extends Component {
             //then push into map of hours and count
             let map = new Map();
             for(let i=0; i<csvdata.length;i++){
-                let date = new Date(csvdata[i].received_timestamp)
-                let hour = date.getHours()
+                
+                let originalDate = csvdata[i].received_timestamp;
+                let dateSubstring = originalDate.substring(0,23);
+                let date = moment.utc(dateSubstring);
+                let hour = date.hour();
                 if(!map.has(hour)){
                     map.set(hour,1);
                 }else{
@@ -148,13 +153,17 @@ class GraphData extends Component {
             //loop through csv data, filter out bad values
             for(let i=0; i<csvdata.length; i++){
                 let type = csvdata[i].call_type_group;
-                let start = new Date(csvdata[i].received_timestamp);
-                let end = new Date(csvdata[i].on_scene_timestamp);
+                let originalStart = csvdata[i].received_timestamp;
+                let originalEnd = csvdata[i].on_scene_timestamp;
+                let startSub = originalStart.substring(0,23);
+                let endSub = originalEnd.substring(0,23);
+                let start = moment.utc(startSub);
+                let end = moment.utc(endSub);
 
                 if(!isNaN(end) && type.length !== 0){
-
+                    
                     //keep adding to count and totals based on call group types
-                    let diff = ((end.getTime()-start.getTime())/1000)/60;
+                    let diff = end.diff(start)/1000/60;
                     if(!totals.has(type)){
                         totals.set(type,diff);
                         count.set(type,1);

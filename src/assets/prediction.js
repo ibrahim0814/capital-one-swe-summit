@@ -4,6 +4,7 @@
 //imports - brain.js, csvdata and fs for writing files
 const brain = require('brain.js');
 const csvdata = require('./data');
+const moment = require('moment');
 const fs = require('fs');
 
 //new neural network
@@ -20,11 +21,12 @@ for(let i =0; i<csvdata.length; i++){
     if(disposition !== 'No Merit' && disposition !== 'Unable to Locate' && disposition !== 'Cancelled' ){
 
         //get hour, mins, lat, lng values from csvdata 
-        let date = new Date(csvdata[i].received_timestamp);
+        let dateSubstring = (csvdata[i].received_timestamp).substring(0,23);
+        let date = moment.utc(dateSubstring);
         let lat = (csvdata[i].latitude)/40;
         let long = (csvdata[i].longitude)/-150;
-        let hour = date.getHours()/24;
-        let min = date.getMinutes()/60;
+        let hour = date.hour()/24;
+        let min = date.minutes()/60;
 
         //get unit type
         let unitType = csvdata[i].unit_type;

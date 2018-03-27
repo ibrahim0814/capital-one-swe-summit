@@ -6,6 +6,7 @@ import csvdata from '../../assets/data';
 
 //get zipcodes json
 import zipcodes from '../../assets/zipcodes';
+import moment from 'moment';
 
 //useful data filter functions
 import {DefaultChartObject, BadValue} from '../usefulFunctions/functions'
@@ -45,9 +46,8 @@ class TimeToDispatch extends Component {
             let zipcodeMap = this.getZipcodeMap();
             let count = new Map();
             let totals = new Map();
-
             //filter out bad values
-            for(let i=0; i<50; i++){
+            for(let i=0; i<csvdata.length; i++){
                 //for each valid value:
                 //determine zipcode 
                 //determine dispatch time 
@@ -56,11 +56,15 @@ class TimeToDispatch extends Component {
                 if(!BadValue(disposition)){
                     let zipcode = csvdata[i].zipcode_of_incident;
                     let district = zipcodeMap.get(zipcode);
-                    let start = new Date(csvdata[i].entry_timestamp);
-                    let end = new Date(csvdata[i].dispatch_timestamp);
+                    let originalStart = csvdata[i].entry_timestamp;
+                    let originalEnd = csvdata[i].dispatch_timestamp;
+                    let startSub = originalStart.substring(0,23);
+                    let endSub = originalEnd.substring(0,23);
+                    let start = moment.utc(startSub);
+                    let end = moment.utc(endSub);
 
-                    if(!isNaN(end) && zipcode !== 94134){
-                        let diff = ((end.getTime()-start.getTime())/1000)/60;
+                    if(!isNaN(end) && zipcode !== 94127){
+                        let diff = end.diff(start)/1000/60;
                         if(!count.has(district)){
                             count.set(district,1);
                             totals.set(district,diff)
@@ -72,14 +76,12 @@ class TimeToDispatch extends Component {
                     }
                 }
             }
-
             //get map of avgs (totals/count) for each district
             let avgs = new Map();
             totals.forEach((value,key)=>{
                 let average = value/count.get(key);
                 avgs.set(key,average);
             });
-
             //resolve with map of avg times for each district
             resolve(avgs);
         }) 

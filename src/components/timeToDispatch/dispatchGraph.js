@@ -25,7 +25,7 @@ const dispatchGraph = (props) =>{
                     }}
                 />
                 <Message>
-                    Average dispatch times for Downtown SF, Nob Hill, and Russian Hill are noticibely higher than everywhere else, hovering around 4.8 minutes. This area is followed closely by North Beach and Ebarcadero North, where dispatch times are on average 4.1 minutes. Ingleside and Portrero Hill are among areas with the shortest dispatch times, with an average time of around 15 seconds per call. <em>Note: Dispatch times were calculated based on the difference between the 'entry_timestamp' and 'dispatch_timestamp' time values.</em>
+                    The average dispatch time across all SF districts was 1.3 minutes for all valid calls. Times for Portola/Visitacion Valley, Presidio, and Treasure Island are noticeably higher than everywhere else, hovering around 2.5 minutes. Mission Bay and Pacific Heights are among areas with the shortest dispatch times, with an average time of around 50-55 seconds per call. <em>Note: Dispatch times were calculated based on the difference between the 'entry_timestamp' and 'dispatch_timestamp' time values. In addition, avg. time for the St. Francis Wood district was omitted from this graph because it was an extreme outlier at around 28 mins. It skewed the graph such that nuances between other districts couldn't be seen well.</em>
                 </Message>
             </Card>
             <Card fluid raised className="mlCardPad">

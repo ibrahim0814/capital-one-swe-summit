@@ -54,7 +54,7 @@ const graphs = (props) => {
                 />
                 <Message>
                     <p>
-                    The number of calls by hour follows a somewhat bimodal distribution. Most calls are recieved during midday, and calls are less frequent at late hours of the night. The number of calls for this particular SF dataset peak around 6 am and 10 am. The least number of calls (193) were recieved between 9 pm and 10 pm. 
+                    The number of calls by hour follows a skewed distribution. Most calls are recieved during midday, and calls are less frequent at early hours of the morning. The number of calls for this particular SF dataset peak around noon and 4 pm. The least number of calls were recieved between 3 am and 5 am. 
                     </p>
                 </Message>
             </Card>
@@ -67,7 +67,7 @@ const graphs = (props) => {
             />
                 <Message>
                     <p>
-                    Average response times differ drastically between the four types of call groups. The lowest avg. response time belongs to calls triggered by alarms. This makes sense as dispatches are often directly deployed after an alarm goes off. For potentially life-threatening cases, average response time is roughly 8.5 minutes. Lastly, calls labeled as 'fire' take a staggering 28 mins on avg. to arrive at the scene. <em> Note: Response time was calculated as the difference between the 'recieved_timestamp' and 'on_scene_timestamp'. I wanted to factor in the 'queue' time between when a person calls and when an operator picks up the call. </em>
+                    Average response times differ drastically between the four types of call groups. The lowest avg. response time belongs to calls triggered by alarms. This makes sense as dispatches are often directly deployed after an alarm goes off. For potentially life-threatening cases, average response time is roughly 8.3 minutes. Lastly, calls labeled as 'fire' take a staggering 27 mins on avg. to arrive at the scene. <em> Note: Response time was calculated as the difference between the 'recieved_timestamp' and 'on_scene_timestamp'. I wanted to factor in the 'queue' time between when a person calls and when an operator picks up the call. </em>
                     </p>
                 </Message>
             </Card>
