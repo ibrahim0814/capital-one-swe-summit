@@ -29,7 +29,6 @@ class GraphData extends Component {
 
         //number of calls per hour chart
         this.numCallsByHourData().then((data)=>{
-            console.log(data);
             this.numCallsByHourChart(data);
         });
 

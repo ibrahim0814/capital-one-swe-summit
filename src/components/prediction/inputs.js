@@ -9,6 +9,7 @@ import {DefaultChartObject} from '../usefulFunctions/functions'
 
 //results graph from prediction output
 import PredictionOutput from './predictionOutput';
+import brain from 'brain.js';
 
 //google geocode api 
 const googleMapsClient = require('@google/maps').createClient({
@@ -19,7 +20,6 @@ const googleMapsClient = require('@google/maps').createClient({
 const jsonNet = require('../../assets/network2');
 
 //create neural network based on json data above -- don't have to re-train
-const brain = require('brain.js');
 const net = new brain.NeuralNetwork().fromJSON(jsonNet);
 
 class Inputs extends Component{

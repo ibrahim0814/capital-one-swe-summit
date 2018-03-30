@@ -1,11 +1,11 @@
 //This is the script I ran to train the neural network. 
 //It filters data from the csv and feeds it into the network for it to train with
 
-//imports - brain.js, csvdata and fs for writing files
-const brain = require('brain.js');
-const csvdata = require('./data');
-const moment = require('moment');
-const fs = require('fs');
+//imports - brain.js, csvdata, moment for dates, and fs for writing files
+import brain from 'brain.js';
+import csvdata from './data';
+import fs from 'fs';
+import moment from 'moment';
 
 //new neural network
 const network = new brain.NeuralNetwork();
