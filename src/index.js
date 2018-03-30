@@ -10,7 +10,7 @@ import http from 'http';
 
 //ping app every minute to keep it awake
 setInterval(()=>{
-    http.get("http://swesummit2018ibrahimali.herokuapp.com");
+    http.get("https://swesummit2018ibrahimali.herokuapp.com");
     console.log('pinged');
 }, 60000);
 
