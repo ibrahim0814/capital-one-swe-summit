@@ -11,7 +11,6 @@ import http from 'http';
 //ping app every minute to keep it awake
 setInterval(()=>{
     http.get("https://swesummit2018ibrahimali.herokuapp.com");
-    console.log('pinged');
 }, 60000);
 
 ReactDOM.render(<App />, document.getElementById('root'));
