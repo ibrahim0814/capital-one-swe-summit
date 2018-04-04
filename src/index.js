@@ -8,7 +8,7 @@ import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import http from 'http';
 
-//ping app every minute to keep it awake
+//ping every min to keep awake
 setInterval(()=>{
     http.get("https://swesummit2018ibrahimali.herokuapp.com");
 }, 60000);
