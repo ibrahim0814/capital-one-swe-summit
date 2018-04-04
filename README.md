@@ -2,7 +2,7 @@
 
 Winning submission for the final round of Capital One's SWE Summit (Summer 2018). Applicants were asked to complete a [coding challenge](https://www.mindsumo.com/contests/sfpd-dispatch) which involved designing a website and analyzing 911 call data from San Francisco. 
 
-View the project: https://swesummit2018ibrahimali.herokuapp.com (heroku apps get sleepy, so you may need to wait a bit for it to load)
+View the project: https://swesummit2018ibrahimali.herokuapp.com (heroku apps get sleepy - be patient as it loads)
 
 ### List of tools and APIs I used to build this application:
 
