@@ -40,7 +40,7 @@ class App extends Component {
 
   render() {
 
-    let pageToShow = this.getPageToShow(this.state.activeItem);
+    const pageToShow = this.getPageToShow(this.state.activeItem);
 
     return (
       <div className="App">

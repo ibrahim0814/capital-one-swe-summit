@@ -14,7 +14,7 @@ const predictionGraph = (props) => {
         mins='0'+mins;
     }
     //determine subheader (address+time)
-    let subheader = props.address+" at "+hrs+":"+mins+" "+props.amOrpm;
+    const subheader = props.address+" at "+hrs+":"+mins+" "+props.amOrpm;
 
     //render a card with a horizontal bar graph, likely dispatch, and message on data analysis w/ machine learning 
     return(

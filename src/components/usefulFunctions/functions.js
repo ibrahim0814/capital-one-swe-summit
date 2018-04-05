@@ -4,7 +4,7 @@ module.exports = {
 
     //simply creates a proper chartjs obj and returns it to be filled with data
     DefaultChartObject: () => {
-        let obj = {
+        const obj = {
             labels: [],
             datasets: [{
                 label: '',
@@ -19,12 +19,8 @@ module.exports = {
 
     //check to see if disposition is bad
     BadValue: (finalDisposition) =>{
-        if(
-            finalDisposition === 'No Merit' ||
-            finalDisposition === 'Cancelled' 
-        ){return true;}
-        else{return false;}
-    
+        return finalDisposition === 'No Merit' ||
+        finalDisposition === 'Cancelled' 
     }
  }
 

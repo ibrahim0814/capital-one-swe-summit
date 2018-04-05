@@ -27,10 +27,10 @@ class HeatMapLifeThreatening extends Component {
       for(let i=0; i<csvdata.length; i++){
 
           //get lat and lng from csvdata
-          let latitude = csvdata[i].latitude;
-          let longitude = csvdata[i].longitude;
+          const latitude = csvdata[i].latitude;
+          const longitude = csvdata[i].longitude;
           
-          let obj = new window.google.maps.LatLng(latitude, longitude);
+          const obj = new window.google.maps.LatLng(latitude, longitude);
           
           //filter by call type group
           if(csvdata[i].call_type_group === 'Potentially Life-Threatening'){

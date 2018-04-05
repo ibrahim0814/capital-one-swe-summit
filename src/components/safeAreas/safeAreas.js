@@ -72,7 +72,7 @@ class SafeAreas extends Component {
         return new Promise((resolve, reject) =>{
 
             //get the zipcode map, set up total and district map
-            let zipcodes = this.getZipcodeMap();
+            const zipcodes = this.getZipcodeMap();
             let total = 0;
             let districts = new Map();
 
@@ -80,13 +80,13 @@ class SafeAreas extends Component {
             //determine district based on zipcode 
             //determine dispatch weight, set set in dispatch map
             for(let i=0; i<csvdata.length; i++){
-                let disposition = csvdata[i].final_call_disposition;
+                const disposition = csvdata[i].final_call_disposition;
                 if(!BadValue(disposition)){
-                    let zipcode = csvdata[i].zipcode_of_incident;
-                    let dispatch = csvdata[i].unit_type;
-                    let weight = this.getDispatchValue(dispatch);
+                    const zipcode = csvdata[i].zipcode_of_incident;
+                    const dispatch = csvdata[i].unit_type;
+                    const weight = this.getDispatchValue(dispatch);
                     total+=weight;
-                    let district = zipcodes.get(zipcode);
+                    const district = zipcodes.get(zipcode);
                     if(!districts.has(district)){
                         districts.set(district,weight);
                     }else{

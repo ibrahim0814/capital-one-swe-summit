@@ -46,7 +46,7 @@ class Inputs extends Component{
     geocodeAddress = () =>{
 
         //this is the data the user submitted
-        let submitted = {
+        const submitted = {
             subAdd: this.state.address,
             subHour: this.state.timeHour,
             subMins: this.state.timeMins,
@@ -94,7 +94,7 @@ class Inputs extends Component{
         }else{
 
             //if short name for results is not SF -- reject
-            let shortName = geocodeResult[0].address_components[3].short_name;
+            const shortName = geocodeResult[0].address_components[3].short_name;
             if(shortName !== 'SF'){
                 this.errorMessageTrue();
                 this.showGraphFalse();
@@ -129,15 +129,15 @@ class Inputs extends Component{
     processResults = (geometry) => {
         //get hour, mins, lat, lng values
         let hour = this.state.timeHour -1;
-        let lat = geometry.lat;
-        let lng = geometry.lng;
-        let min = this.state.timeMins;
+        const lat = geometry.lat;
+        const lng = geometry.lng;
+        const min = this.state.timeMins;
         if(this.state.timePMorAM === 'PM'){
             hour+=12;
         }
 
         //run through neural network 
-        let result = net.run({lat: lat/40, long: lng/-150, hour: hour/24, min: min/60});
+        const result = net.run({lat: lat/40, long: lng/-150, hour: hour/24, min: min/60});
 
         //create graph based on results from neural network 
         this.createGraphData(result);
@@ -207,8 +207,8 @@ class Inputs extends Component{
         if(this.state.okayToGraph){
 
             //from the map we map, get the most likely dispatch 
-            let labels = this.state.graphData.labels;
-            let data = this.state.graphData.datasets[0].data;
+            const labels = this.state.graphData.labels;
+            const data = this.state.graphData.datasets[0].data;
             let max = 0;
             let index = 0;
 
@@ -219,7 +219,7 @@ class Inputs extends Component{
                     index = i;
                 }
             }
-            let dispatch = labels[index];
+            const dispatch = labels[index];
             max = Math.floor(max*100)/100;
 
             //render chart with given props
@@ -247,8 +247,8 @@ class Inputs extends Component{
     render(){
 
         //initially get error message or chart, value are empty divs if we can't display them right now
-        let message = this.getErrorMessage();
-        let chart = this.getChart();
+        const message = this.getErrorMessage();
+        const chart = this.getChart();
         return(
             <div>
                 <Header as='h4' attached='top'>

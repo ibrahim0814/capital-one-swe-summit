@@ -26,9 +26,9 @@ class AllDataHeatMap extends Component {
       for(let i=0; i<csvdata.length; i++){
 
           //get lat and lng from csvdata
-          let latitude = csvdata[i].latitude;
-          let longitude = csvdata[i].longitude;
-          let obj = new window.google.maps.LatLng(latitude, longitude);
+          const latitude = csvdata[i].latitude;
+          const longitude = csvdata[i].longitude;
+          const obj = new window.google.maps.LatLng(latitude, longitude);
           data.push(obj);
 
       }

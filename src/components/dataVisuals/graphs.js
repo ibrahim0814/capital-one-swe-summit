@@ -3,13 +3,13 @@ import React from 'react';
 
 //other imports -- chartjs and semantic ui components
 import {Bar,Doughnut} from 'react-chartjs-2';
-import  { Card, Header,Message } from 'semantic-ui-react';
+import  {Card, Header,Message} from 'semantic-ui-react';
 
 //functional graphs component
 const graphs = (props) => {
 
     //set default options for graph
-    let defaultOptions = {
+    const defaultOptions = {
         title:{
             display: false,
         },

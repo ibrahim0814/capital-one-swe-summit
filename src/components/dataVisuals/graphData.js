@@ -50,7 +50,7 @@ class GraphData extends Component {
             let total = 0;
             for(let i=0; i<csvdata.length;i++){
                 if(!BadValue(csvdata[i].call_final_disposition)){
-                    let call_type = csvdata[i].call_type;
+                    const call_type = csvdata[i].call_type;
                     if(!map.has(call_type)){
                         map.set(call_type,1);
                     }else{
@@ -64,7 +64,7 @@ class GraphData extends Component {
             //if a % value is <1%, then group into 'other category
             let adjPer = new Map();
             map.forEach((value,key)=>{
-                let per = (value/total)*100;
+                const per = (value/total)*100;
                 if(per >= 1){
                     adjPer.set(key,per);
                 }else{
@@ -107,10 +107,10 @@ class GraphData extends Component {
             let map = new Map();
             for(let i=0; i<csvdata.length;i++){
                 
-                let originalDate = csvdata[i].received_timestamp;
-                let dateSubstring = originalDate.substring(0,23);
-                let date = moment.utc(dateSubstring);
-                let hour = date.hour();
+                const originalDate = csvdata[i].received_timestamp;
+                const dateSubstring = originalDate.substring(0,23);
+                const date = moment.utc(dateSubstring);
+                const hour = date.hour();
                 if(!map.has(hour)){
                     map.set(hour,1);
                 }else{
@@ -151,18 +151,18 @@ class GraphData extends Component {
 
             //loop through csv data, filter out bad values
             for(let i=0; i<csvdata.length; i++){
-                let type = csvdata[i].call_type_group;
-                let originalStart = csvdata[i].received_timestamp;
-                let originalEnd = csvdata[i].on_scene_timestamp;
-                let startSub = originalStart.substring(0,23);
-                let endSub = originalEnd.substring(0,23);
-                let start = moment.utc(startSub);
-                let end = moment.utc(endSub);
+                const type = csvdata[i].call_type_group;
+                const originalStart = csvdata[i].received_timestamp;
+                const originalEnd = csvdata[i].on_scene_timestamp;
+                const startSub = originalStart.substring(0,23);
+                const endSub = originalEnd.substring(0,23);
+                const start = moment.utc(startSub);
+                const end = moment.utc(endSub);
 
                 if(!isNaN(end) && type.length !== 0){
                     
                     //keep adding to count and totals based on call group types
-                    let diff = end.diff(start)/1000/60;
+                    const diff = end.diff(start)/1000/60;
                     if(!totals.has(type)){
                         totals.set(type,diff);
                         count.set(type,1);
@@ -176,8 +176,8 @@ class GraphData extends Component {
             //calculate map of avg times (divide totals by count)
             let avg = new Map();
             totals.forEach((value, key) =>{
-                let num = count.get(key);
-                let averageTime = value/num;
+                const num = count.get(key);
+                const averageTime = value/num;
                 avg.set(key,averageTime);
             });
 

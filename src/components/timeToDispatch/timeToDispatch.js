@@ -43,7 +43,7 @@ class TimeToDispatch extends Component {
         return new Promise((resolve, reject) =>{
 
             //get zipcode map, set up count and totals maps
-            let zipcodeMap = this.getZipcodeMap();
+            const zipcodeMap = this.getZipcodeMap();
             let count = new Map();
             let totals = new Map();
             //filter out bad values
@@ -54,17 +54,17 @@ class TimeToDispatch extends Component {
                 //set values for count and totals maps 
                 let disposition = csvdata[i].final_call_disposition;
                 if(!BadValue(disposition)){
-                    let zipcode = csvdata[i].zipcode_of_incident;
-                    let district = zipcodeMap.get(zipcode);
-                    let originalStart = csvdata[i].entry_timestamp;
-                    let originalEnd = csvdata[i].dispatch_timestamp;
-                    let startSub = originalStart.substring(0,23);
-                    let endSub = originalEnd.substring(0,23);
-                    let start = moment.utc(startSub);
-                    let end = moment.utc(endSub);
+                    const zipcode = csvdata[i].zipcode_of_incident;
+                    const district = zipcodeMap.get(zipcode);
+                    const originalStart = csvdata[i].entry_timestamp;
+                    const originalEnd = csvdata[i].dispatch_timestamp;
+                    const startSub = originalStart.substring(0,23);
+                    const endSub = originalEnd.substring(0,23);
+                    const start = moment.utc(startSub);
+                    const end = moment.utc(endSub);
 
                     if(!isNaN(end) && zipcode !== 94127){
-                        let diff = end.diff(start)/1000/60;
+                        const diff = end.diff(start)/1000/60;
                         if(!count.has(district)){
                             count.set(district,1);
                             totals.set(district,diff)
@@ -79,7 +79,7 @@ class TimeToDispatch extends Component {
             //get map of avgs (totals/count) for each district
             let avgs = new Map();
             totals.forEach((value,key)=>{
-                let average = value/count.get(key);
+                const average = value/count.get(key);
                 avgs.set(key,average);
             });
             //resolve with map of avg times for each district
