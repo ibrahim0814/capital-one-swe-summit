@@ -8,7 +8,7 @@ View the project: https://swesummit.netlify.com/
 
 ## List of tools and APIs I used to build this application:
 
-* [Semantic UI React](https://react.semantic-ui.com/introduction) for styling
+* [Semantic UI React](https://github.com/Semantic-Org/Semantic-UI-React) for styling
 * [React Chartjs](https://github.com/reactjs/react-chartjs) for graphing and visualizing data 
 * [React Google Maps](https://github.com/tomchentw/react-google-maps) for rendering heatmaps
 * [Google's Geocode API](https://developers.google.com/maps/documentation/geocoding/start) for retrieving latitude and longitude coordinates
