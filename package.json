@@ -5,7 +5,7 @@
   "dependencies": {
     "@google/maps": "^0.4.5",
     "brain.js": "^1.1.2",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "moment": "^2.21.0",
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
