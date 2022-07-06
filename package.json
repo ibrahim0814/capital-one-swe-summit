@@ -6,7 +6,7 @@
     "@google/maps": "^0.4.5",
     "brain.js": "^1.1.2",
     "chart.js": "^2.7.2",
-    "moment": "^2.21.0",
+    "moment": "^2.29.4",
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.1",
