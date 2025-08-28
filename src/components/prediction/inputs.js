@@ -13,7 +13,7 @@ import brain from 'brain.js';
 
 //google geocode api 
 const googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyBIxRvkjRk7SlQeqioGNNGo9WbP6BtT4SQ'
+    key: process.env.REACT_APP_GOOGLE_GEOCODING_API_KEY
   });
 
 //json representation of neural network

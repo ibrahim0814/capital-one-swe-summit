@@ -17,7 +17,7 @@ const heatmapContainer = () => {
             <Header textAlign="center" className ="mapCardHeader">Dispatch Frequency for All Calls </Header>
             <HeatMapAll
                 center = {{lat:37.7578602, lng: -122.4384694}}
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1mTgj63K6iq8JvHFNg5qT5VHh0VqusRY&v=3.exp&libraries=geometry,drawing,places,visualization"
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&v=3.exp&libraries=geometry,drawing,places,visualization`}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
@@ -31,7 +31,7 @@ const heatmapContainer = () => {
             <Header textAlign="center" className ="mapCardHeader">Dispatch Frequency for Potentially Life-Threatening Calls</Header>
             <HeatMapLT
                 center = {{lat:37.7578602, lng: -122.4384694}}
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1mTgj63K6iq8JvHFNg5qT5VHh0VqusRY&v=3.exp&libraries=geometry,drawing,places,visualization"
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&v=3.exp&libraries=geometry,drawing,places,visualization`}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
