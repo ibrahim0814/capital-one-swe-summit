@@ -18,6 +18,6 @@ View the project: https://capital-one-summit.vercel.app
 
 ## Author
 
-Created by Ibrahim Ali. Contact: ibrahim.ali@vanderbilt.edu
+Created by Ibrahim Ali. Contact: ibrahim.0814@gmail.com
 
 
