@@ -4,7 +4,7 @@
 
 Winning submission for the final round of Capital One's SWE Summit (May 2018). Applicants were asked to complete a [coding challenge](https://www.mindsumo.com/contests/sfpd-dispatch) which involved designing a website and analyzing 911 call data from San Francisco. 
 
-View the project: https://swesummit.netlify.com/
+View the project: https://capital-one-summit.vercel.app
 
 ## List of tools and APIs I used to build this application:
 
